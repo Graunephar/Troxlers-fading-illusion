@@ -36,16 +36,21 @@ void setup() {
   }
   
   filter(BLUR, 6);
-  
-  PImage cross = loadImage("cross.png");
-  image(cross, centerWidth - 5, centerHeight - 5, 10, 10);  // Draw the cross
-
+  drawCross();
 }
 
 void draw() {
   background(bgColor);
   updateCircle();
-  delay (1000);
+  notShownDotIndex++;
+  if(notShownDotIndex >= dots.size()) notShownDotIndex = 0;
+  drawCross();
+  delay(100);
+}
+
+void drawCross() {
+  PImage cross = loadImage("cross.png");
+  image(cross, centerWidth - 5, centerHeight - 5, 10, 10);  // Draw the cross 
 }
 
 void updateCircle() {
