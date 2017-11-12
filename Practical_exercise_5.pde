@@ -19,9 +19,7 @@ void setup() {
 
   int centerheight = frameHeight/2;
   int centerwidth = frameWidth/2;
-  
-  PImage cross = loadImage("cross.png");
-  image(cross, centerwidth - 5, centerheight - 5, 10, 10);  // Draw the cross
+
   
   tint(255, 200);  // Set opacity
  
@@ -31,7 +29,7 @@ void setup() {
   for(int i = 0; i < pointsInCircle; i++) {
   
     PImage dot = loadImage("orange-dot.png");  // Load the dot  
-    dot.filter(BLUR, 50);
+    //dot.filter(BLUR, 10);
     float x = centerwidth + circleRadius * cos(radians(angle));
     float y = centerheight + circleRadius * sin(radians(angle));
     
@@ -43,6 +41,11 @@ void setup() {
     angle = angle + dinstancebetween;
    
   }
+  
+  filter(BLUR, 6);
+  
+  PImage cross = loadImage("cross.png");
+  image(cross, centerwidth - 5, centerheight - 5, 10, 10);  // Draw the cross
 
 }
 
